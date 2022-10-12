@@ -9,7 +9,7 @@ structured data from unstructured raw documents.
 ## Contributions
 
 We welcome contributions! This repo's [Issues](https://github.com/Unstructured-IO/community-tasks/issues)
-tracks bugs, features and enhancement requests for [Unstructured's open source repositories](https://github.com/Unstructured-IO/).
+tracks bugs, features, and enhancement requests for [Unstructured's open source repositories](https://github.com/Unstructured-IO/).
 
 ## Key Concepts
 
