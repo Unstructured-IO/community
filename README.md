@@ -23,7 +23,7 @@ terms of its license. `pip install unstructured` and you are good to go.
 
 ### Preprocessing pipeline APIs
 
-A preprocessing pipeline API (or just "pipeline API") is a notebook includes the capability (python function)
+A preprocessing pipeline API (or just "pipeline API") is a notebook that includes the capability (python function)
 to transform a raw document to structured data. By following the documented conventions,
 FastAPI APIs may be auto-generated from a pipeline notebook.
 
