@@ -9,7 +9,7 @@ structured data from unstructured raw documents.
 ## Contributions
 
 We welcome contributions! This repo's [Issues](https://github.com/Unstructured-IO/community-tasks/issues)
-track issues across [Unstructured's open source repositories](https://github.com/Unstructured-IO/).
+tracks bugs and features for [Unstructured's open source repositories](https://github.com/Unstructured-IO/).
 
 ## Key Concepts
 
@@ -23,14 +23,14 @@ terms of its license. `pip install unstructured` and you are good to go.
 
 ### Preprocessing pipeline APIs
 
-A preprocessing API is a notebook includes the capability (python function) to transform a raw
-document to structured data. By following the documented conventions, FastAPI APIs may be auto-generated
-from a preprocessing pipeline notebook.
+A preprocessing pipeline API (or just "pipeline API") is a notebook includes the capability (python function)
+to transform a raw document to structured data. By following the documented conventions,
+FastAPI APIs may be auto-generated from a pipeline notebook.
 
 See [pipeline-sec-filings](https://github.com/Unstructured-IO/pipeline-sec-filings/) for an example repo
-that includes a preprocessing pipeline api and auto-generated FastAPI.
+that includes a preprocessing pipeline API and auto-generated FastAPI.
 
 ### Developer tools for generating FastAPIs
 
 https://github.com/Unstructured-IO/unstructured-api-tools includes the tooling required to create
-FastAPIs from preprocessing pipeline notebooks.
+FastAPIs from pipeline notebooks.
