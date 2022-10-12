@@ -32,5 +32,5 @@ that includes a preprocessing pipeline API and auto-generated FastAPI.
 
 ### Developer tools for generating FastAPIs
 
-https://github.com/Unstructured-IO/unstructured-api-tools includes the tooling required to create
-FastAPIs from pipeline notebooks.
+The [unstructured-api-tools](https://github.com/Unstructured-IO/unstructured-api-tools) library includes the
+tooling required to create FastAPIs from pipeline notebooks.
