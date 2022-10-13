@@ -15,7 +15,7 @@ tracks bugs, features, and enhancement requests for [Unstructured's open source 
 
 ### Bricks
 
-Bricks are the "blocks" or python functions from which preprocessing pipelines are made, and are organized
+Bricks are the "blocks" or Python functions from which preprocessing pipelines are made, and are organized
 in the [Unstructured](https://github.com/Unstructured-IO/unstructured) library. These collectively form
 the Swiss Army knife that Python developers can use to extract structured data from raw documents into
 the format that they want. They may be used independently of any other Unstructured repos  under the
@@ -23,8 +23,8 @@ terms of its license. `pip install unstructured` and you are good to go.
 
 ### Preprocessing pipeline APIs
 
-A preprocessing pipeline API (or just "pipeline API") is a notebook that includes the capability (python function)
-to transform a raw document to structured data. By following the documented conventions,
+A preprocessing pipeline API (or just "pipeline API") is a notebook that includes a Python function
+capble of transforming a raw document to structured data. By following the documented conventions,
 FastAPI APIs may be auto-generated from a pipeline notebook.
 
 See [pipeline-sec-filings](https://github.com/Unstructured-IO/pipeline-sec-filings/) for an example repo
