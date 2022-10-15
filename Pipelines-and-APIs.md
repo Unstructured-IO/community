@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document describes how preprocessing pipelines (or just "pipelines") and their APIs are supported, and git repository conventions to support pipeline development. It is a working specification: not all conventions are yet supported by [unstructured-api-tools](https://github.com/Unstructured-IO/unstructured-api-tools).
+This document describes how preprocessing pipelines (or just "pipelines") and their derived APIs are supported, and the git repository conventions that support pipeline development. It is a working specification: not all conventions are yet supported by [unstructured-api-tools](https://github.com/Unstructured-IO/unstructured-api-tools).
 
 Note that some pipelines may depend on a model inference API call, i.e. an API call from within API. The architecture for model inferences is not considered in this document.
 
@@ -18,17 +18,17 @@ Note that some pipelines may depend on a model inference API call, i.e. an API c
 
 ## API Specification
 
-The convention for an API endpoint is as follows:
+By convention, the URL path for a HTTP API endpoint is formatted like:
 
    /**\<pipeline-family>**/**v\<semver-version>**/**\<pipeline-name>**
 
-API endpoints are versioned by [semver](https://semver.org/) where the semver version applies to the pipeline family as a whole, thus the endpoint for each pipeline in the pipeline family will have the same version. It is parsed from `preprocessing-pipeline-family.yaml` and is validated before the API is generated. 
+API endpoints are versioned by [semver](https://semver.org/) where the semver version applies to the pipeline family as a whole. Thus, the endpoint for all pipelines in a pipeline family all have the same version, which is parsed from `preprocessing-pipeline-family.yaml`.
 
 ### API Inputs
 
 API endpoints expect HTTP `POST` requests with parameters and files specified in a `multipart/form-data` payload. The reason for using multipart/form-data is because it allows for posting multiple binary files and additional input parameters in one request.
 
-For example, the following `curl` command posts a `file` and a paramater `output_schema`:
+For example, the following `curl` command posts a file with an addtional paramater for `output_schema`:
 
 ```bash
 curl -X 'POST' \
@@ -161,7 +161,7 @@ By default, an API endpoint returns initial structured data (ISD) as `applicatio
 
 However, ISD schemas for different pipeline APIs may include additional fields as well.
 
-The request's `Accept` header specifies the the MIME type the response the client expectes. If a client specifies a MIME type in the `Accept` header that the API does not support, the API will return a `406: Not Acceptable` response.
+The request's `Accept` header specifies the the MIME type the response the client expectes. If a client specifies a MIME type in the `Accept` header that the API does not support, the API returns a `406: Not Acceptable` response.
 
 ## Github Repository Conventions for Pipeline Families
 
