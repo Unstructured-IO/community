@@ -214,6 +214,8 @@ qtconsole==5.3.2
     # via jupyter
 qtpy==2.2.1
     # via qtconsole
+ratelimit==2.2.1
+    # via -r requirements.in
 regex==2022.9.13
     # via nltk
 requests==2.28.1
