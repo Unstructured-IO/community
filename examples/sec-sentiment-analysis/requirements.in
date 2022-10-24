@@ -1,4 +1,5 @@
 jupyter
+transformers
 ratelimit
 requests
 unstructured
