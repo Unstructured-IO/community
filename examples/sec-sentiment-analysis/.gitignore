@@ -1,1 +1,3 @@
 xbrl-forms/*
+sec-sentiment-analysis*.json
+sec-sentiment-model/*
