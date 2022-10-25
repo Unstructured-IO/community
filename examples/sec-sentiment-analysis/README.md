@@ -9,4 +9,4 @@ risk factors section of S-1 filings. To get started, use the following steps:
 - Run `pip install -r requirements.txt` to install the dependencies
 - Run `PYTHONPATH=. jupyter notebook` from this directory to launch the notebook
 
-At this point, you'll be able to sentiment analysis example notebook.
+At this point, you'll be able to run the sentiment analysis example notebook.
