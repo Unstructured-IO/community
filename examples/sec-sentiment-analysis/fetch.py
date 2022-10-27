@@ -222,3 +222,13 @@ def _get_session(company: Optional[str] = None, email: Optional[str] = None) -> 
         }
     )
     return session
+
+
+def get_version():
+    """Pulls the current version of the pipeline API from the GitHub repo."""
+    api_yaml_url = "https://raw.githubusercontent.com/Unstructured-IO/pipeline-sec-filings/main/preprocessing-pipeline-family.yaml"
+    yaml_content = requests.get(api_yaml_url).text
+    for tokens in [line.split(" ") for line in yaml_content.split("\n")]:
+        if tokens[0] == "version:":
+            return tokens[1]
+    raise ValueError("Version not found")
