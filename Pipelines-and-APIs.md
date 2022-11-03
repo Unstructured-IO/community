@@ -161,7 +161,7 @@ By default, an API endpoint returns initial structured data (ISD) as `applicatio
 
 However, ISD schemas for different pipeline APIs may include additional fields as well.
 
-The request's `Accept` header specifies the the MIME type the response the client expectes. If a client specifies a MIME type in the `Accept` header that the API does not support, the API returns a `406: Not Acceptable` response.
+The request's `Accept` header specifies the the MIME type the response the client expects. If a client specifies a MIME type in the `Accept` header that the API does not support, the API returns a `406: Not Acceptable` response.
 
 ## Github Repository Conventions for Pipeline Families
 
