@@ -41,7 +41,14 @@ environment for the SEC preprocessing, you can run `pyenv virtualenv 3.8.14 sec`
 1. Run `git clone https://github.com/pyenv/pyenv.git ~/.pyenv` to install `pyenv`
 2. Run `git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv`
    to install `pyenv-virtualenv` as a `pyenv` plugin.
-3. Use the following commands to add the `pyenv-virtualenv` startup code to `~/.bashrc`
+3. Use the following commands to add the `pyenv-virtualenv` startup code to `~/.bashrc`:
+
+```
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+```
+
 4. Follow steps 4 and 5 from the Mac/Homebrew instructions.
 
 ## Contributions
