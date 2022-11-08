@@ -6,6 +6,44 @@ We are building an ecosystem of preprepocessing pipeline tools for Data Scientis
 and Data Engineers so they may quickly work through the challenge of extracting
 structured data from unstructured raw documents.
 
+## Getting Started
+
+Unstructured's open-source packages currently target Python 3.8. If you are using or contributing
+to Unstructured code, we encourage you to work with Python 3.8 in a virtual environment. You can
+use the following instructions to get up and running with a Python 3.8 virtual environemtn
+with `pyenv-virtualenv`:
+
+#### Mac / Homebrew
+
+1. Install `pyenv-virtualenv` with `brew install pyenv-virtualenv`
+2. Next, use the following commands to add the `pyenv-virtualenv` startup code to `~/.bash_profile`
+
+```
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+```
+
+3. Install Python 3.8 by running `pyenv install 3.8.14`.
+4. Create and activate a virtual environment by running:
+
+```
+pyenv virtualenv 3.8.14 unstructured
+pyenv activate unstructured
+```
+
+You can changed the name of the virtual environment from `unstructured` to another name if you're
+creating a virtual environment for a pipeline. For example, if you're a creating a virtual
+environment for the SEC preprocessing, you can run `pyenv virtualenv 3.8.14 sec`.
+
+#### Linux
+
+1. Run `git clone https://github.com/pyenv/pyenv.git ~/.pyenv` to install `pyenv`
+2. Run `git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv`
+   to install `pyenv-virtualenv` as a `pyenv` plugin.
+3. Use the following commands to add the `pyenv-virtualenv` startup code to `~/.bashrc`
+4. Follow steps 4 and 5 from the Mac/Homebrew instructions.
+
 ## Contributions
 
 We welcome contributions! This repo's [Issues](https://github.com/Unstructured-IO/community-tasks/issues)
