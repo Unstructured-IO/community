@@ -15,8 +15,9 @@ with `pyenv-virtualenv`:
 
 #### Mac / Homebrew
 
-1. Install `pyenv-virtualenv` with `brew install pyenv-virtualenv`
-2. Next, use the following commands to add the `pyenv-virtualenv` startup code to `~/.bash_profile`
+1. Install `pyenv` with `brew install pyenv`.
+2. Install `pyenv-virtualenv` with `brew install pyenv-virtualenv`
+3. Next, use the following commands to add the `pyenv-virtualenv` startup code to `~/.bash_profile`
 
 ```
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
@@ -24,8 +25,8 @@ echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.
 echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
 ```
 
-3. Install Python 3.8 by running `pyenv install 3.8.14`.
-4. Create and activate a virtual environment by running:
+4. Install Python 3.8 by running `pyenv install 3.8.14`.
+5. Create and activate a virtual environment by running:
 
 ```
 pyenv virtualenv 3.8.14 unstructured
