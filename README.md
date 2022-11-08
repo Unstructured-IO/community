@@ -10,7 +10,7 @@ structured data from unstructured raw documents.
 
 Unstructured's open-source packages currently target Python 3.8. If you are using or contributing
 to Unstructured code, we encourage you to work with Python 3.8 in a virtual environment. You can
-use the following instructions to get up and running with a Python 3.8 virtual environemtn
+use the following instructions to get up and running with a Python 3.8 virtual environment
 with `pyenv-virtualenv`:
 
 #### Mac / Homebrew
