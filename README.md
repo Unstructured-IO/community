@@ -17,14 +17,8 @@ with `pyenv-virtualenv`:
 
 1. Install `pyenv` with `brew install pyenv`.
 2. Install `pyenv-virtualenv` with `brew install pyenv-virtualenv`
-3. Next, use the following commands to add the `pyenv-virtualenv` startup code to `~/.bashrc`
-
-```
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-```
-
+3. Follow the instructions [here](https://github.com/pyenv/pyenv#user-content-set-up-your-shell-environment-for-pyenv)
+   to add the `pyenv-virtualenv` startup code to your terminal profile.
 4. Install Python 3.8 by running `pyenv install 3.8.14`.
 5. Create and activate a virtual environment by running:
 
