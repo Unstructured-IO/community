@@ -28,7 +28,7 @@ API endpoints are versioned by [semver](https://semver.org/) where the semver ve
 
 API endpoints expect HTTP `POST` requests with parameters and files specified in a `multipart/form-data` payload. The reason for using multipart/form-data is because it allows for posting multiple binary files and additional input parameters in one request.
 
-For example, the following `curl` command posts a file with an addtional paramater for `output_schema`:
+For example, the following `curl` command posts a file with an additional paramater for `output_schema`:
 
 ```bash
 curl -X 'POST' \
