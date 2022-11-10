@@ -150,7 +150,7 @@ response = requests.post(
 )
 ```
 
-The caller may also request the content type of the HTTP response through a `output_format` parameter when multiple files are being posted to the api, and the `Accept` header should be set to `multipart/mixed`, for example:
+When multiple files are posted to the API, the caller may request the content type (per file within a multipart/mixed response) with the `output_format` parameter. In this case, the `Accept` header must be set to `multipart/mixed`, for example:
 
 ```bash
 curl -X 'POST' \
