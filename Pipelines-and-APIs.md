@@ -235,7 +235,7 @@ Each pipeline notebook must define a function called `pipeline_api`, which is in
 
 The `unstructured_api_tools` repo houses the logic for converting pipeline notebooks to scripts.
 
-Executing `make generate-api` from the root directory of the repo to generate the HTTP APIs, i.e. creates prepline_<family_name>/api/<api_name>.py files.
+Executing `make generate-api` from the root directory of the repo generates the HTTP APIs, i.e. creates prepline_<family_name>/api/<api_name>.py files.
 
 ### Releases
 
