@@ -4,7 +4,7 @@
 
 👍🎉 First off, thank you for taking the time to contribute! 🎉👍
 
-The following is a set of guidelines for contributing to [Unstructured](https://www.unstructured.io/) and its packages, which are hosted on our [GitHub organization account](https://github.com/Unstructured-IO).
+The following is a set of guidelines for contributing to the open source ecosystem of preprocessing pipeline APIs and supporting libraries hosted [here](https://github.com/Unstructured-IO).
 
 This is meant to help the review process go smoothly, save the reviewer(s) time in catching common issues, and avoid submitting PRs that will be rejected by the CI.
 
