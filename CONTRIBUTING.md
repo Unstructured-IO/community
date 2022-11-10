@@ -30,7 +30,8 @@ The following is a list of tasks to be completed before submitting a pull reques
 1. Ensure environment is consistent
     1. [ ] Update dependencies in `.in` files if needed (pay special attention to whether the current PR depends on changes to internal repos that are not packaged - if so the commit needs to be bumped).
     1. [ ] If dependencies have changed, recompile dependencies with `make pip-compile`.
-    1. [ ] Make sure local virtual environment matches what CI will see - reinstall internal/external dependencies as needed.
+    1. [ ] Make sure local virtual environment matches what CI will see - reinstall internal/external dependencies as needed.\
+<sub>Follow the [virtualenv install instructions](https://github.com/Unstructured-IO/community#mac--homebrew) if you are unsure about working with virtual environments.
 <br/><br/>    
 1. Run tests and checks locally
     1. [ ] Run tests locally with `make test`. Some repositories have supplemental tests with targets like `make test-integration` or `make test-sample-docs`. If applicable, run these as well. Try to make sure all tests are passing before submitting the PR, unless you are submitting in draft mode.
@@ -38,19 +39,16 @@ The following is a list of tasks to be completed before submitting a pull reques
 <br/><br/>    
 1. Ensure code is clean
     1. [ ] Remove all debugging artifacts.
-    1. [ ] Remove commented out code.
+    1. [ ] Remove commented out code. 
+    1. [ ] For actual comments, note that our typical format is `# NOTE(<username>): <comment>`
     1. [ ] Double check everything has been committed and pushed, recommended that local feature branch is clean.
     
 ### PR Guidelines:
 
 1. [ ] PR title should follow [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) standards.
-
-    - PRs to private repositories should reference the JIRA issue the PR seeks to address, e.g. "feat CORE-123: Add X feature".
-    
-    - PRs to public repositories (like [`unstructured`](https://github.com/Unstructured-IO/unstructured), [`unstructured-api-tools`](https://github.com/Unstructured-IO/unstructured-api-tools), [`pipeline-sec-filings`](https://github.com/Unstructured-IO/pipeline-sec-filings)) should avoid referencing internal JIRA issues, so PR titles should look like "feat: Add X feature".
-<br/><br/>      
+      
 1. [ ] PR description should give enough detail that the reviewer knows what they reviewing - sometimes a copy-paste of the added `CHANGELOG.md` items is enough, sometimes more detail is needed.
-<br/><br/>
+
 1. [ ] If applicable, add a testing section to the PR description that recommends steps a reviewer can take to verify the changes, e.g. a snippet of code they can run locally.
 
 ### License
@@ -74,11 +72,11 @@ For example, if the PR addresses a new feature, the PR title should look like:
 
 For feature branches, the naming convention is:
 
-- `<description>`. 
+- `<username>/<description>`. 
 
-For the commit above, the branch name would look like: 
+For the commit above, coming from the user called `contributor` the branch name would look like: 
 
-- `exciting-new-feature`.
+- `contributor/exciting-new-feature`.
 
 Here is a list of some of the most common possible commit types:
 
