@@ -10,7 +10,7 @@ Note that some pipelines may depend on a model inference API call, i.e. an API c
 
 **preprocessing pipeline** - AKA **pipeline** - the end-to-end flow. Given a raw document input(s) and (optional) parameters, return formatted data for a particular use case (labeling, Hugging Face API, internal ETL).
 
-**pipeline family** - a collection of pipelines relevant for a particular document type. Pipelines in the same pipeline family live in the same repo and share the same dependencies.
+**pipeline family** - a collection of pipelines relevant to a particular document type. Pipelines in the same pipeline family live in the same repo and share the same dependencies.
 
 **initial structured data (ISD)** - given a raw document, Unstructured.io's initial structured json of that document.
 
@@ -18,7 +18,7 @@ Note that some pipelines may depend on a model inference API call, i.e. an API c
 
 ## API Specification
 
-By convention, the URL path for a HTTP API endpoint is formatted like:
+By convention, the URL path for an HTTP API endpoint is formatted like:
 
    /**\<pipeline-family>**/**v\<semver-version>**/**\<pipeline-name>**
 
@@ -28,7 +28,7 @@ API endpoints are versioned by [semver](https://semver.org/) where the semver ve
 
 API endpoints expect HTTP `POST` requests with parameters and files specified in a `multipart/form-data` payload. The reason for using multipart/form-data is because it allows for posting multiple binary files and additional input parameters in one request.
 
-For example, the following `curl` command posts a file with an addtional paramater for `output_schema`:
+For example, the following `curl` command posts a file with an additional parameter for `output_schema`:
 
 ```bash
 curl -X 'POST' \
@@ -53,7 +53,7 @@ response = requests.post(
 )
 ```
 
-If a pipeline notebook's `pipeline_api` function has `text: str` as the first argument, the implication is that one or more plain text files are expected in the auto-generated FastAPI route. E.g., it would expect a request like that includes a `text_files` parameter:
+If a pipeline notebook's `pipeline_api` function has `text: str` as the first argument, the implication is that one or more plain text files are expected in the auto-generated FastAPI route. E.g., it would expect a request that includes a `text_files` parameter:
 
 
 ```bash
@@ -81,8 +81,6 @@ response = requests.post(
 
 Alternatively, binary `files` may be posted instead of plain text `text_files`.
 
-If `text_files` is passed, binary `files` may not be passed and vice-versa. Optional parameters like `output_type` are specified by including them as kwargs in the function signature for `pipeline_api`. They can be passed no matter which parameter is used to send in the file.
-
 The API can accept multiple documents in a single call by passing in multiple `files` form fields.
 
 A curl example looks like:
@@ -93,8 +91,8 @@ curl -X 'POST' \
   'https://<hostname>/<api-path>' \
   -H 'Accept: application/json' \
   -H 'Content-Type: multipart/form-data' \
-  -F 'files=@my-cool-file.txt' \
-  -F 'files=@my-other-cool-file.txt' \
+  -F 'files=@my-cool-file.pdf' \
+  -F 'files=@my-other-cool-file.pdf' \
   -F 'output_schema=labelstudio'
 ```
 
@@ -126,7 +124,7 @@ Refer to this [gist page](https://gist.github.com/cragwolfe/1da738e8710aa2781b20
 
 The parameters that the HTTP API accepts is driven by the signature of the `pipeline_api` function defined in a pipeline notebook.
 
-`pipeline_api` function may include the kwarg `response_type: str` which indicates that the function returns a payload suitable for csv (a string) or suitable for json (a dict or list object). If present, it must take a default argument of `"text/csv"` or `"application/json"`. The caller of the auto-generated API may then request the content type of the HTTP response through the usual Accept header, for example:
+`pipeline_api` function may include the kwarg `response_type: str` which indicates that the function returns a payload suitable for csv (a string) or suitable for json (a dict or list object). If present, it must take a default argument of `"text/csv"` or `"application/json"`. The caller of the auto-generated API may then request the content type of the HTTP response through the usual Accept header when only one file is being posted to the api, for example:
 
 ```bash
 curl -X 'POST' \
@@ -152,16 +150,48 @@ response = requests.post(
 )
 ```
 
+When multiple files are posted to the API, the caller may request the content type (per file within a multipart/mixed response) with the `output_format` parameter. In this case, the `Accept` header must be set to `multipart/mixed`, for example:
+
+```bash
+curl -X 'POST' \
+  'https://<hostname>/<api-path>' \
+  -H 'Accept: multipart/mixed' \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'text_files=@my-cool-file.txt' \
+  -F 'text_files=@my-cool-other-file.txt' \
+  -F 'output_schema=labelstudio' \
+  -F 'output_format=text/csv'
+```
+
+or in Python using `requests` as follows:
+
+```python
+import requests
+
+response = requests.post(
+  "https://<hostname>/<api-path>",
+  files={
+    "text_files": [
+      open("my-cool-file.txt", "rb"),
+      open("my-other-cool-file.txt", "rb"),
+    ],
+    "output_schema": "labelstudio",
+    "output_format": "text/csv",
+  },
+  headers={"Accept": "multipart/mixed"},
+)
+```
+
 ### API Outputs
 
-By default, an API endpoint returns initial structured data (ISD) as `application/json`. The pipeline can specify the content type by including a `response_class` kwarg in the `pipeline_api` function. The schema of the response may be further defined by the the `output_schema` parameter, i.e. multiple json schemas may be supported. The ISD schema in Python is a list of dictionaries with at least the following fields:
+By default, an API endpoint returns initial structured data (ISD) as `application/json`. As previously mentioned, a `text/csv` could instead be requested if the `pipeline_api` defines the `response_type`. In addition, other schemas for a given content type may be requested through the use of the `output_schema` parameter. I.e., multiple json schemas may be supported for a given API. The ISD schema in Python is a list of dictionaries with at least the following fields:
 
 - `text` (`str`) - The raw text for the section
 - `type` (`str`) - The type of text the section represents (e.g. title, narrative text, table)
 
 However, ISD schemas for different pipeline APIs may include additional fields as well.
 
-The request's `Accept` header specifies the the MIME type the response the client expects. If a client specifies a MIME type in the `Accept` header that the API does not support, the API returns a `406: Not Acceptable` response.
+The request's `Accept` header specifies the MIME type of the response the client expects. If a client specifies a MIME type in the `Accept` header that the API does not support, the API returns a `406: Not Acceptable` response.
 
 ## Github Repository Conventions for Pipeline Families
 
@@ -191,7 +221,7 @@ The directory layout for a preprocessing pipeline family follows, where "sec_fil
 
 **preprocessing-pipeline-family.yaml** includes key configuration parameters, especially version and pipeline family name.
 
-Pipelines are defined by their jupyter notebooks and tooling is provided by [unstructured-api-tools](https://github.com/Unstructured-IO/unstructured-api-tools#conversion-from-pipeline_api-to-fastapi) to convert the noteobook to a FastAPI API.
+Pipelines are defined by their jupyter notebooks and tooling is provided by [unstructured-api-tools](https://github.com/Unstructured-IO/unstructured-api-tools#conversion-from-pipeline_api-to-fastapi) to convert the notebook to a FastAPI API.
 
 Any notebook with a filename formatted as `pipeline-*.ipynb` is the jupyter notebook version of an API. By convention, a cell that begins with the line
  ```
@@ -205,13 +235,13 @@ Each pipeline notebook must define a function called `pipeline_api`, which is in
 
 The `unstructured_api_tools` repo houses the logic for converting pipeline notebooks to scripts.
 
-Executing `make generate-api` from the root directory of the repo to generates the HTTP APIs, i.e. creates prepline_<family_name>/api/<api_name>.py files.
+Executing `make generate-api` from the root directory of the repo generates the HTTP APIs, i.e. creates prepline_<family_name>/api/<api_name>.py files.
 
 ### Releases
 
 The latest stable or production release is indicated by the version in preprocessing-pipeline-family.yaml.
 
-However, commits between releases may merged to the main branch that are not intended to be released by
+However, commits between releases may be merged to the main branch that are not intended to be released by
 including a -dev suffix in the version in the CHANGELOG, e.g. `## 0.1.1-dev4`.
 
 ### Repo Names
