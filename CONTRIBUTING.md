@@ -8,7 +8,7 @@ The following is a set of guidelines for contributing to [Unstructured](https://
 
 This is meant to help the review process go smoothly, save the reviewer(s) time in catching common issues, and avoid submitting PRs that will be rejected by the CI.
 
-In some cases it's convenient to put up a PR that's not ready for final review. This is fine (and under those circumstances it's not necessary to go through this checklist), but the PR should be put in draft mode so everyone knows it's not ready for review. For public repos Github has an official [draft mode](https://github.blog/2019-02-14-introducing-draft-pull-requests/) for this. For private repos, just add the `draft` tag to the PR.
+In some cases it's convenient to put up a PR that's not ready for final review. This is fine (and under those circumstances it's not necessary to go through this checklist), but the PR should be put in draft mode so everyone knows it's not ready for review. 
 
 ### How to Contribute?
 
@@ -57,7 +57,7 @@ The following is a list of tasks to be completed before submitting a pull reques
 
 Unstructured open source projects are licensed under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
 
-Include a license at the top of new files:
+Include a license at the top of new `setup.py` files:
 
 - [Python license example](https://github.com/Unstructured-IO/unstructured/blob/main/setup.py)
 
@@ -66,21 +66,21 @@ Include a license at the top of new files:
 
 For pull requests, our convention is to squash and merge. For PR titles, we use [conventional commit](https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/#conventional-commits) messages. The format should look like 
 
-- `<type> <issue-number>: <description>`.
+- `<type>: <description>`.
 
-For example, if the PR addresses `FAKE-22` and is a new feature, the PR title should look like: 
+For example, if the PR addresses a new feature, the PR title should look like: 
 
-- `feat FAKE-22: Implements exciting new feature`. 
+- `feat: Implements exciting new feature`. 
 
 For feature branches, the naming convention is:
 
-- `<issue>/<description>`. 
+- `<description>`. 
 
-For `FAKE-22` above, the branch name would look like: 
+For the commit above, the branch name would look like: 
 
-- `fake-22/exciting-new-feature`.
+- `exciting-new-feature`.
 
-Here is a list of some of the most common possible types:
+Here is a list of some of the most common possible commit types:
 
 - `feat` – a new feature is introduced with the changes
 - `fix` – a bug fix has occurred
