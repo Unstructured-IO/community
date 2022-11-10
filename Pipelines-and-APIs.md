@@ -81,8 +81,6 @@ response = requests.post(
 
 Alternatively, binary `files` may be posted instead of plain text `text_files`.
 
-Optional parameters like `output_type` are specified by including them as kwargs in the function signature for `pipeline_api`. They can be passed no matter which parameter is used to send in the file.
-
 The API can accept multiple documents in a single call by passing in multiple `files` form fields.
 
 A curl example looks like:
