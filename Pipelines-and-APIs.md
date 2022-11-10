@@ -184,7 +184,7 @@ response = requests.post(
 
 ### API Outputs
 
-By default, an API endpoint returns initial structured data (ISD) as `application/json`. The pipeline can specify the content type by including a `response_class` kwarg in the `pipeline_api` function. The schema of the response may be further defined by the `output_schema` parameter, i.e. multiple json schemas may be supported. The ISD schema in Python is a list of dictionaries with at least the following fields:
+By default, an API endpoint returns initial structured data (ISD) as `application/json`. As previously mentioned, a `text/csv` could instead be requested if the `pipeline_api` defines the `response_type`. In addition, other schemas for a given content type may be requested through the use of the `output_schema` parameter. I.e., multiple json schemas may be supported for a given API. The ISD schema in Python is a list of dictionaries with at least the following fields:
 
 - `text` (`str`) - The raw text for the section
 - `type` (`str`) - The type of text the section represents (e.g. title, narrative text, table)
