@@ -2,8 +2,8 @@
 
 Welcome to the Unstructured Community!
 
-We are building an ecosystem of preprepocessing pipeline tools for Data Scientists
-and Data Engineers so they may quickly work through the challenge of extracting
+We are building an ecosystem of preprocessing pipeline tools for Data Scientists
+and Data Engineers, so they may quickly work through the challenge of extracting
 structured data from unstructured raw documents.
 
 ## Getting Started
@@ -42,6 +42,8 @@ environment for the SEC preprocessing, you can run `pyenv virtualenv 3.8.14 sec`
 
 We welcome contributions! This repo's [Issues](https://github.com/Unstructured-IO/community-tasks/issues)
 tracks bugs, features, and enhancement requests for [Unstructured's open source repositories](https://github.com/Unstructured-IO/).
+
+When contributing, please follow our [Contributing to Unstructured](CONTRIBUTING.md) guidelines. Thank you!
 
 ## Key Concepts
 
