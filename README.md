@@ -19,17 +19,17 @@ with `pyenv-virtualenv`:
 2. Install `pyenv-virtualenv` with `brew install pyenv-virtualenv`
 3. Follow the instructions [here](https://github.com/pyenv/pyenv#user-content-set-up-your-shell-environment-for-pyenv)
    to add the `pyenv-virtualenv` startup code to your terminal profile.
-4. Install Python 3.8 by running `pyenv install 3.8.14`.
+4. Install Python 3.8 by running `pyenv install 3.8.15`.
 5. Create and activate a virtual environment by running:
 
 ```
-pyenv virtualenv 3.8.14 unstructured
+pyenv virtualenv 3.8.15 unstructured
 pyenv activate unstructured
 ```
 
 You can changed the name of the virtual environment from `unstructured` to another name if you're
 creating a virtual environment for a pipeline. For example, if you're a creating a virtual
-environment for the SEC preprocessing, you can run `pyenv virtualenv 3.8.14 sec`.
+environment for the SEC preprocessing, you can run `pyenv virtualenv 3.8.15 sec`.
 
 #### Linux
 
