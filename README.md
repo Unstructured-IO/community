@@ -87,3 +87,7 @@ includes a preprocessing pipeline API and auto-generated FastAPI.
 
 The [unstructured-api-tools](https://github.com/Unstructured-IO/unstructured-api-tools) library includes the
 tooling required to create FastAPIs from pipeline notebooks.
+
+## 🤗 Hugging Face
+
+Hugging Face Spaces offer a simple way to host ML demo apps, models and datasets directly on our organization’s profile. This allows us to showcase our projects and work collaboratively with other people in the ML ecosystem. Visit our space [here](https://huggingface.co/unstructuredio)!
