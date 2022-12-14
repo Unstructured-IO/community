@@ -1,5 +1,7 @@
 ﻿# Preprocessing Pipeline and API Framework
 
+**Coming Soon!** Support for gzip'ed files and multi-file json responses. See [the spec](specs/Pipeline-API-gz-spec.md).
+
 ## Introduction
 
 This document describes how preprocessing pipelines (or just "pipelines") and their derived APIs are supported, and the git repository conventions that support pipeline development. It is a working specification: not all conventions are yet supported by [unstructured-api-tools](https://github.com/Unstructured-IO/unstructured-api-tools).
