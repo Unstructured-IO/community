@@ -1,4 +1,7 @@
 argilla[server]
+datasets
 jupyter
 requests
-unstructured==0.3.0
+torch
+transformers
+unstructured==0.3.1
