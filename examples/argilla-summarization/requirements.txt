@@ -1,0 +1,3 @@
+argilla[server]
+requests
+unstructured@git+https://github.com/unstructured-io/unstructured
