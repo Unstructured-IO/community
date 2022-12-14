@@ -426,7 +426,7 @@ traitlets==5.7.1
     #   qtconsole
 typing-extensions==4.4.0
     # via pydantic
-unstructured @ git+https://github.com/unstructured-io/unstructured
+unstructured==0.3.0
     # via -r requirements.in
 uri-template==1.2.0
     # via jsonschema
