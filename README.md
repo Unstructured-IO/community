@@ -59,10 +59,11 @@ environment for the SEC preprocessing, you can run `pyenv virtualenv 3.8.15 sec`
 
 ## :open_hands: Contributions
 
-We welcome contributions! This repo's [Issues](https://github.com/Unstructured-IO/community-tasks/issues)
-tracks bugs, features, and enhancement requests for [Unstructured's open source repositories](https://github.com/Unstructured-IO/).
+We welcome contributions! See [all open issues](https://github.com/issues?q=is%3Aopen+is%3Aissue+archived%3Afalse+user%3AUnstructured-IO+is%3Apublic) for bugs, features, and enhancement requests in the community.
 
-When contributing, please follow our [Contributing to Unstructured](CONTRIBUTING.md) guidelines. Thank you!
+When contributing, please follow our [Contributing to Unstructured](CONTRIBUTING.md) guidelines.
+
+Don't hesitate to reach out us on [slack](https://unstructuredw-kbe4326.slack.com/) with any questions. Thank you!
 
 ## :green_book: Key Concepts
 
