@@ -63,7 +63,7 @@ We welcome contributions! See [all open issues](https://github.com/issues?q=is%3
 
 When contributing, please follow our [Contributing to Unstructured](CONTRIBUTING.md) guidelines.
 
-Don't hesitate to reach out us on [slack](https://unstructuredw-kbe4326.slack.com/) with any questions. Thank you!
+Don't hesitate to reach out us on [slack](https://join.slack.com/t/unstructuredw-kbe4326/shared_invite/zt-1nlh1ot5d-dfY7zCRlhFboZrIWLA4Qgw) with any questions. Thank you!
 
 ## :green_book: Key Concepts
 
