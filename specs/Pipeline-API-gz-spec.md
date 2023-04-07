@@ -216,14 +216,14 @@ curl -X 'POST' 'https://<hostname>/<api-path>' \
 * Assumes the Content-Type for the form part of `text_files` is `application/gzip`
 * The json result is a list with length of the number of files (in this case 3), where each item is the result of a call to `pipeline_api`. The json schema of each item in the list is "isd" (AKA initial structured data).
 
-### Single File compressed, JPG response (new)
+### Single File compressed, Application/json response (new)
 
 ```
 curl -X 'POST' 'https://<hostname>/<api-path>' \
-  -H 'Accept: image/jpeg' \
+  -H 'Accept: application/json' \
   -H 'Content-Type: multipart/form-data' \
   -F 'gz_uncompressed_content_type=image/png` `
-  -F 'text_files=a_beach.png.gz'
+  -F 'files=a_beach.png.gz'
 ```
 In this case, the API is accepting a .png and responding with a .jpeg.
 
